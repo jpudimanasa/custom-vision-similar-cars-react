@@ -1,28 +1,19 @@
-function SimilarImages() {
+import { getSimilarCars } from "./similarCarsGetter";
+
+function SimilarImages(props: any) {
+  const similarCars = getSimilarCars(props.make);
   return (
     <>
       <div className="row">
-        <div className="col-md-4">
-          <img
-            src="images/audi one.jpeg"
-            alt="Image 1"
-            className="img-fluid img-thumbnail"
-          />
-        </div>
-        <div className="col-md-4">
-          <img
-            src="images/audi two.jpeg"
-            alt="Image 2"
-            className="img-fluid img-thumbnail"
-          />
-        </div>
-        <div className="col-md-4">
-          <img
-            src="images/audi three.jpg"
-            alt="Image 3"
-            className="img-fluid"
-          />
-        </div>
+        {similarCars.map((car) => (
+          <div className="col-md-4" key={car.path}>
+            <img
+              src={car.path}
+              alt={car.model}
+              className="img-fluid img-thumbnail"
+            />
+          </div>
+        ))}
       </div>
     </>
   );

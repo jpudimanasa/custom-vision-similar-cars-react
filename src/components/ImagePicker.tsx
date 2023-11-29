@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ImageResult from "./ImageResult";
 import { getPredictedTag } from "./PredictionCaller";
+import SimilarImages from "./SimilarImages";
 
 function ImagePicker() {
   const [predictedMake, setPredictedMake] = useState("");
@@ -36,6 +37,7 @@ function ImagePicker() {
       </div>
 
       <ImageResult make={predictedMake} />
+      <SimilarImages make={predictedMake} />
     </>
   );
 }
