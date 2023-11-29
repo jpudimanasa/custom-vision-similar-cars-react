@@ -1,4 +1,4 @@
-import ImagePicker from "./components/imagePicker";
+import ImagePicker from "./components/ImagePicker";
 import SimilarImages from "./components/SimilarImages";
 
 function App() {
