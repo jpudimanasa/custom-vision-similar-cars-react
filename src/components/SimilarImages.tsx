@@ -1,11 +1,8 @@
-import { getSimilarCars } from "./similarCarsGetter";
-
 function SimilarImages(props: any) {
-  const similarCars = getSimilarCars(props.make);
   return (
     <>
       <div className="row">
-        {similarCars.map((car) => (
+        {props.similarCars.map((car: any) => (
           <div className="col-md-4" key={car.path}>
             <img
               src={car.path}

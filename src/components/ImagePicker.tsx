@@ -2,9 +2,12 @@ import { useState } from "react";
 import ImageResult from "./ImageResult";
 import { getPredictedTag } from "./PredictionCaller";
 import SimilarImages from "./SimilarImages";
+import { getSimilarCars } from "./similarCarsCaller";
+import { Car } from "./types";
 
 function ImagePicker() {
   const [predictedMake, setPredictedMake] = useState("");
+  const [similarCars, setSimilarCars] = useState<Car[]>([]);
 
   const handleButtonClick = async () => {
     const fileInput = document.getElementById("formFile") as HTMLInputElement;
@@ -13,7 +16,9 @@ function ImagePicker() {
     }
     const selectedFile = fileInput.files[0];
     const tag = await getPredictedTag(selectedFile);
+    const similarCars = await getSimilarCars(tag);
     setPredictedMake(tag);
+    setSimilarCars(similarCars);
   };
 
   return (
@@ -37,7 +42,7 @@ function ImagePicker() {
       </div>
 
       <ImageResult make={predictedMake} />
-      <SimilarImages make={predictedMake} />
+      <SimilarImages similarCars={similarCars} />
     </>
   );
 }
