@@ -22,28 +22,31 @@ function ImagePicker() {
   };
 
   return (
-    <>
-      <div className="mb-3 col-4 p-3 mt-4">
-        <label htmlFor="formFile" className="form-label">
-          Submit image here
-        </label>
-        <input className="form-control" type="file" id="formFile" />
-      </div>
-
-      <div className="col-12 ms-4 mb-2">
-        <button
-          className="btn btn-primary"
-          type="submit"
-          id="submitButton"
-          onClick={handleButtonClick}
-        >
-          Submit
-        </button>
+    <div className="container">
+      <div className="col-sm-4 p-4 mb-3">
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title text-center">Submit image here</h5>
+            <input
+              className="form-control mt-4 mb-2"
+              type="file"
+              id="formFile"
+            />
+            <button
+              className="btn btn-primary"
+              type="submit"
+              id="submitButton"
+              onClick={handleButtonClick}
+            >
+              Submit
+            </button>
+          </div>
+        </div>
       </div>
 
       <ImageResult make={predictedMake} />
       <SimilarImages similarCars={similarCars} />
-    </>
+    </div>
   );
 }
 

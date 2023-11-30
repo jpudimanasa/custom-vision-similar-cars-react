@@ -3,11 +3,13 @@ function SimilarImages(props: any) {
     <>
       <div className="row">
         {props.similarCars.map((car: any) => (
-          <div className="col-md-4" key={car.path}>
+          <div className="col" key={car.path}>
             <img
               src={car.path}
               alt={car.model}
-              className="img-fluid img-thumbnail"
+              className="object-fit-contain border rounded"
+              width={200}
+              height={200}
             />
           </div>
         ))}
