@@ -1,9 +1,9 @@
 import { useState } from "react";
 import ImageResult from "./ImageResult";
-import { getPredictedTag } from "./PredictionCaller";
+import { getPredictedTag } from "../api/PredictionCaller";
 import SimilarImages from "./SimilarImages";
-import { getSimilarCars } from "./similarCarsCaller";
-import { Car } from "./types";
+import { getSimilarCars } from "../api/similarCarsCaller";
+import { Car } from "../api/types";
 
 function ImagePicker() {
   const [predictedMake, setPredictedMake] = useState("");
